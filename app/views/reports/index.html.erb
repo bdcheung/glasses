@@ -1,6 +1,8 @@
-<h1>Will I need sunglasses?</h1>
-<%= form_for @report do |f| %>
+
+	<h1>Will I need sunglasses?</h1>
+	<p>Enter your location below to find out if you'll need sunglasses today.</p>
+	<%= form_for @report do |f| %>
 	<%= f.label :location %><br />
 	<%= f.text_field :location %><br />
 	<%= f.submit %>
-<% end %>
+	<% end %>
