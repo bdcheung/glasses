@@ -1,14 +1,10 @@
 // Place all the styles related to the Reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap";
-@import "bootstrap-responsive";
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 10pt;
-  }
-}
+// @import "bootstrap-responsive";
+
+
 html {
   overflow-y: scroll;
 }
@@ -31,4 +27,8 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
+}
+@import "bootstrap";
+@media (max-width:480px) {
+	h1 { font-size: 30px !important; }
 }

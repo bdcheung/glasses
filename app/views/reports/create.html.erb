@@ -1,3 +1,3 @@
 <%= sunglasses %>
-<p>The weather is forecast to be <%= @report.forecast['text'].downcase %></p>
+<p>The weather for <%= @report.response.location['city']  %>, <%= @report.response.location['region']  %> is forecast to be <%= @report.forecast['text'].downcase %></p>
 <p class="text-info"><%= link_to 'Try again?', root_url %></p>
