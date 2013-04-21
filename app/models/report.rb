@@ -18,6 +18,6 @@ class Report < ActiveRecord::Base
   end
 
   def sunny?
-  	forecast['text'].downcase.include? 'sun'
+  	forecast['text'].downcase.include?("sun") || forecast['text'].downcase.include?("clear")
   end
 end

@@ -1,9 +1,9 @@
 module ReportsHelper
 	def sunglasses
 		if @report.sunny?
-			"Yes!"
+			"<h1>Yes!</h1>".html_safe
 		else
-			"No!"
+			"<h1>No!</h1>".html_safe
 		end
 	end
 end
