@@ -1,0 +1,4 @@
+<p>All Users</p>
+<% @users.each do |u| %>
+<%= u.username %> - <%= u.email %> - <%= u.home_location %><br />
+<% end %>

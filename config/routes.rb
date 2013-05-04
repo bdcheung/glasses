@@ -1,6 +1,11 @@
 Glasses::Application.routes.draw do
+  resources :users
+
+
   root :to => 'reports#index'
   resources :reports
+  match 'clarify' => 'reports#clarify'
+  match 'create' => 'reports#create'
 
 
   # The priority is based upon order of creation:

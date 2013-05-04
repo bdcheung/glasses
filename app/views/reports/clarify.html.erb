@@ -1,0 +1,19 @@
+<H3>Multiple locations found. Please choose one:</H3>
+
+<% @report.geoplanet_location.each do |t| %>
+<p>
+	<%= t.name %>, <%= t.admin1 %> (<%= t.country %>)
+</p>
+<% end %>
+
+<%= form_for @report do |f| %>
+
+
+<div class="field">
+
+	<%= f.text_field :location %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
