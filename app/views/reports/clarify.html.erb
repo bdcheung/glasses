@@ -2,18 +2,7 @@
 
 <% @report.geoplanet_location.each do |t| %>
 <p>
-	<%= t.name %>, <%= t.admin1 %> (<%= t.country %>)
+	<%= t.name %>, <%= t.admin1 %> (<%= t.country %>) | 
+	<%= link_to 'Select', {:controller => :reports, :action => :new, :report => {:location => "#{t.name} #{t.admin1}"}} %>
 </p>
-<% end %>
-
-<%= form_for @report do |f| %>
-
-
-<div class="field">
-
-	<%= f.text_field :location %>
-</div>
-<div class="actions">
-	<%= f.submit %>
-</div>
 <% end %>

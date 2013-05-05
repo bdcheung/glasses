@@ -1,9 +1,8 @@
 Glasses::Application.routes.draw do
-  resources :users
+  resources :users, :reports
 
 
   root :to => 'reports#index'
-  resources :reports
   match 'clarify' => 'reports#clarify'
   match 'create' => 'reports#create'
 

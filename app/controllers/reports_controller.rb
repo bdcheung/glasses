@@ -3,6 +3,10 @@ class ReportsController < ApplicationController
 		@report = Report.new
 	end
 
+	def new
+		@report = Report.new(params[:report])
+	end
+
 	def create
 		@report = Report.new(params[:report])
 
@@ -10,14 +14,19 @@ class ReportsController < ApplicationController
 			# flash[:notice] = "Please enter a more specific location."
 			render :clarify
 		else
-			@report.geoplanet_location
+			# @report.geoplanet_location
 		end
 
 		if @report.valid?
 
 		else
+			
 			flash[:error] = "You must enter a location"
 			redirect_to root_path
 		end
 	end
+
+	#def show
+#		@report = Report.new(params[:report])
+#	end
 end
