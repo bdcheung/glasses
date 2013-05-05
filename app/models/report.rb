@@ -6,7 +6,7 @@ class Report < ActiveRecord::Base
   GeoPlanet.appid = "I22yVmDV34G_SCBRk0NHKXjuMe9bxnhNQRW27lY1rqn0ta.L8vKUx5TxM3v9yOtMbp9kpDrew8XJ"
 
   def geoplanet_location
-    if location.to_s.length == 5
+    if location.to_i > 0
       geoplanet_location = GeoPlanet::Place.search(location.to_s)
     else
     geoplanet_location = GeoPlanet::Place.search(location.to_s, count: 5)
