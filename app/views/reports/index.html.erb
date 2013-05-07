@@ -5,6 +5,6 @@
 	<p>Because why go outside if there's no Vitamin D?</p>
 	<%= form_for @report, :html => { :class => "form-search" } do |f| %>
 	<%= f.label :location, 'Enter Your Location'%><br />
-	<%= f.text_field :location, class: 'input-medium search-query' %>
+	<%= f.text_field :location, :autofocus => true, class: 'input-medium search-query' %>
 	<%= f.submit 'Submit', :class => 'btn btn-small btn-info' %>
 	<% end %>
