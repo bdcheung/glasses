@@ -23,7 +23,7 @@ class Report < ActiveRecord::Base
   end
 
   def response
-    response = client.lookup_by_woeid(woeid)
+    @response = client.lookup_by_woeid(woeid)
   end
 
   def forecast
@@ -32,5 +32,8 @@ class Report < ActiveRecord::Base
 
   def sunny?
     forecast['text'].downcase.include?("sun") || forecast['text'].downcase.include?("clear")
+  end
+  def daytime?
+    Time.now.hour >= response.astronomy['sunrise'].to_i && Time.now.hour <= (response.astronomy['sunset'].to_i + 12)
   end
 end
