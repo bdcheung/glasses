@@ -13,8 +13,6 @@ class ReportsController < ApplicationController
 		if @report.valid? && @report.geoplanet_location.count > 1
 			# flash[:notice] = "Please enter a more specific location."
 			render :clarify
-		else
-			# @report.geoplanet_location
 		end
 
 		if @report.valid?
