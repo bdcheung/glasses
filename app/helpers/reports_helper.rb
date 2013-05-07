@@ -9,7 +9,7 @@ module ReportsHelper
 				<p>The weather for #{@report.response.location['city']}, #{@report.response.location['region']} is forecast to be #{@report.forecast['text'].downcase}</p>".html_safe
 			end
 		else
-			"<h1>No, it's nighttime!</h1><iframe width=420 height=315 src=https://www.youtube.com/watch?v=d_HlTGzkKeE?autoplay=1 frameborder=0 allowfullscreen></iframe>".html_safe
+			"<h1>No, it's nighttime!</h1>".html_safe
 		end
 	end
 end
