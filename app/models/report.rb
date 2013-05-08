@@ -33,7 +33,16 @@ class Report < ActiveRecord::Base
   def sunny?
     forecast['text'].downcase.include?("sun") || forecast['text'].downcase.include?("clear")
   end
+
+  def sunrise
+    response.astronomy['sunrise'].to_i
+  end
+
+  def sunset
+    response.astronomy['sunset'].to_i + 12
+  end
+
   def daytime?
-    Time.now.hour >= response.astronomy['sunrise'].to_i && Time.now.hour <= (response.astronomy['sunset'].to_i + 12)
+    Time.now.hour >= sunrise && Time.now.hour <= sunset
   end
 end
