@@ -8,7 +8,7 @@ module ReportsHelper
 			end
 		else
 			"<h1>No, it's nighttime!</h1>
-			<iframe width=420 height=315 src='http://www.youtube.com/embed/XAsq6-jtVD8?autoplay=1' frameborder='0' allowfullscreen></iframe>".html_safe
+			<iframe width=500 height=375 src=http://player.vimeo.com/video/24893775?color=ff9933&autoplay=1 frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>".html_safe
 		end
 	end
 end
