@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+	$('hero-unit').mouseenter(function(){
+		$('hero-unit').fadeTo('fast', 0.0);
+	});
+});
