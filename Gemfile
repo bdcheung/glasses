@@ -18,6 +18,7 @@ end
 
 gem 'yahoo_weatherman', '~> 2.0.0'
 gem 'geoplanet', '~> 0.2.6'
+gem 'timezone'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

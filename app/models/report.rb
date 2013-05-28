@@ -3,7 +3,8 @@ class Report < ActiveRecord::Base
   validates_presence_of :location
 
   require 'geoplanet'
-  GeoPlanet.appid = "I22yVmDV34G_SCBRk0NHKXjuMe9bxnhNQRW27lY1rqn0ta.L8vKUx5TxM3v9yOtMbp9kpDrew8XJ"
+  require 'timezone'
+
 
   def geoplanet_location
     if location.to_i > 0
@@ -15,7 +16,7 @@ class Report < ActiveRecord::Base
 
 
   def client
-   client = Weatherman::Client.new
+    client = Weatherman::Client.new
   end
 
   def woeid
@@ -42,7 +43,22 @@ class Report < ActiveRecord::Base
     response.astronomy['sunset'].to_i + 12
   end
 
-  def daytime?
-    Time.now.hour >= sunrise && Time.now.hour <= sunset
+  def time_at_location
+    latitude = geoplanet_location.first.latitude
+    longitude = geoplanet_location.first.longitude
+    timezone = Timezone::Zone.new :latlon => [latitude, longitude]
+    time_at_location = timezone.time Time.now
   end
+
+  def daytime?
+    time_at_location.hour >= sunrise && time_at_location.hour <= sunset
+  end
+
+  private
+  # GeoPlanet and Timezone configurations
+  GeoPlanet.appid = "I22yVmDV34G_SCBRk0NHKXjuMe9bxnhNQRW27lY1rqn0ta.L8vKUx5TxM3v9yOtMbp9kpDrew8XJ"
+  Timezone::Configure.begin do |c|
+    c.username = 'bdcheung'
+  end
+
 end
