@@ -12,9 +12,14 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+	<!-- Fork me on github -->
+	<div class="visible-desktop">
+		<a href="https://github.com/bdcheung/glasses">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+		</a>
+	</div>
 	<div class="container-fluid">
 		<div class="row-fluid">
-
 			<div class="center hero-unit">
 				<% flash.each do |key, value| %>
 				<div class="alert alert-<%= key %>"><%= value %></div>
