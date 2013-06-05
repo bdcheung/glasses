@@ -15,10 +15,7 @@ class ReportsController < ApplicationController
 			render :clarify
 		end
 
-		if @report.valid?
-
-		else
-			
+		unless @report.valid?
 			flash[:error] = "You must enter a location"
 			redirect_to root_path
 		end

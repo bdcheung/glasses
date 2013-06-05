@@ -14,11 +14,6 @@ class Report < ActiveRecord::Base
     end
   end
 
-
-  def client
-    client = Weatherman::Client.new
-  end
-
   def woeid
     woeid = woeid || geoplanet_location.first.woeid
   end
@@ -59,6 +54,9 @@ class Report < ActiveRecord::Base
   GeoPlanet.appid = "I22yVmDV34G_SCBRk0NHKXjuMe9bxnhNQRW27lY1rqn0ta.L8vKUx5TxM3v9yOtMbp9kpDrew8XJ"
   Timezone::Configure.begin do |c|
     c.username = 'bdcheung'
+  end
+  def client
+    client = Weatherman::Client.new
   end
 
 end
