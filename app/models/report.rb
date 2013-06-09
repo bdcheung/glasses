@@ -31,11 +31,11 @@ class Report < ActiveRecord::Base
   end
 
   def sunrise
-    response.astronomy['sunrise'].to_i
+    (response.astronomy['sunrise'].to_i) - 1
   end
 
   def sunset
-    response.astronomy['sunset'].to_i + 12
+    response.astronomy['sunset'].to_i + 11
   end
 
   def time_at_location
